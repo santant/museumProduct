@@ -61,7 +61,7 @@
 </template>
 <script>
 	 import asycRouterMap from '@/router/index.js'
-
+    import {mapGetters} from  'vuex'
 	export default {
 		data() {
 			return {
@@ -96,9 +96,8 @@
 
 		},
 		mounted() { //全部渲染完毕
-      this.routerList = asycRouterMap.options.routes;
-
-      console.log(this.routerList)
+      this.routerList = asycRouterMap.options.routes
+      this.$store.commit('routerListDate',this.routerList)
 		},
 		watch: { //数据改变执行异步函数
 			//	       bbsTemplate_data: 'dataPull'
@@ -107,9 +106,9 @@
 
 		},
 		computed: { //数据改变computed
-			// ...mapGetters({
-			// 	filterCount:'filterCount'//拿到状态的数据
-			// })
+			 ...mapGetters({
+			 	filterCount:'routerListDate'//拿到状态的数据
+			 })
 		}
 	}
 </script>

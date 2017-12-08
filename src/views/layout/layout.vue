@@ -1,0 +1,63 @@
+<template>
+  <!-- 跟节点 -->
+  <div id="artup">
+    <div class="app-wrapper">
+      <div  :class="{'chenkMenu_width':$store.state.app.isCollapse}"  class="container sidebar-container theme1">
+        <menuLeft></menuLeft>
+      </div>
+      <div :class="{'chenkMenu_marginLeft':$store.state.app.isCollapse}" class="container main-container">
+        <menu-top></menu-top>
+        <!--路由-->
+        <router-view/>
+      </div>
+    </div>
+  </div>
+</template>
+<script>
+  import asycRouterMap from '@/router/index.js'
+  import {mapGetters} from  'vuex'
+  import menuTop from './menuNavTop/index.vue' //导航栏上面部分
+  import menuLeft from './menuNavLeft/index.vue' //导航栏左侧部分
+  export default {
+    data() {
+      return {
+        isCollapse: false,
+        routerList:[]
+      }
+    },
+    //		beforeRouteEnter(to,from,next){//路由钩子函数
+    //			console.log(to)
+    //			console.log(from)
+    //			next()
+    //		},
+    components: { //引入组件
+
+    },
+    methods: { //执行的方法函数
+
+    },
+    created() { //只执行一次
+
+    },
+    mounted() { //全部渲染完毕
+      this.routerList = asycRouterMap.options.routes
+      this.$store.commit('routerListDate',asycRouterMap.options.routes)
+    },
+    watch: { //数据改变执行异步函数
+      //	       bbsTemplate_data: 'dataPull'
+    },
+    components: { //引入组件
+      'menuTop':menuTop,
+      'menuLeft':menuLeft
+    },
+    computed: { //数据改变computed
+      ...mapGetters({
+        filterRouterList:'routerListDate'//拿到状态的数据
+      })
+    }
+  }
+</script>
+
+<style lang="scss">
+   @import "layout";
+</style>
