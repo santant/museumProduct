@@ -24,11 +24,11 @@
         isCollapse: false
       }
     },
-    //		beforeRouteEnter(to,from,next){//路由钩子函数
-    //			console.log(to)
-    //			console.log(from)
-    //			next()
-    //		},
+    beforeRouteEnter(to,from,next){//路由钩子函数
+      console.log(to)
+      console.log(from)
+      next()
+    },
     components: { //引入组件
 
     },
@@ -40,6 +40,14 @@
     },
     mounted() { //全部渲染完毕
       this.$store.commit('routerListDate',asycRouterMap.options.routes)
+
+      let dataRouter = {
+        path:'',
+        oIndex :JSON.parse(sessionStorage.getItem('dataRouter')).oIndex,
+        $router : this.$router
+      }
+//      sessionStorage.setItem('dataRouter',JSON.stringify({ path:path, oIndex :oIndex}))
+      this.$store.commit('checkPath',dataRouter)
     },
     watch: { //数据改变执行异步函数
       //	       bbsTemplate_data: 'dataPull'

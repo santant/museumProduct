@@ -5,8 +5,7 @@ import test from '@/components/test'
 import test2 from '@/components/test2'
 Vue.use(Router)
 
-
-export default new Router({
+const ROUTER = new Router({
   routes: [
     {
         path: '/index',
@@ -57,3 +56,11 @@ export default new Router({
     }
   ]
 })
+
+// router.afterEach((to, from, next) => {
+//   if(to.meta.title) {
+//     window.document.title = to.meta.title
+//   }
+// })
+export default ROUTER
+

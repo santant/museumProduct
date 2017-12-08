@@ -44,6 +44,7 @@
           oIndex :oIndex,
           $router : this.$router
         }
+        sessionStorage.setItem('dataRouter',JSON.stringify({ path:path, oIndex :oIndex}))
         this.$store.commit('checkPath',dataRouter)
       }
     },

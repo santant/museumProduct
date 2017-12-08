@@ -25,11 +25,12 @@ const app = {
       state.navTitle.navTitle = state.routerListDate[oIndexPage[0]].meta.lable
       state.navTitle.navOutline = state.routerListDate[oIndexPage[0]].children[oIndexPage[1]].meta.lable
       oIndexPage.length>2 ? state.navTitle.titleNav = state.navTitle.threeLine :state.navTitle.titleNav = state.navTitle.navOutline
-      console.log(state)
-      dataRouter.$router.push({
-        path: dataRouter.path,
-        query: {}
-      })
+      if(dataRouter.path){
+        dataRouter.$router.push({
+          path: dataRouter.path,
+          query: {}
+        })
+      }
     }
   },
   actions: {}
