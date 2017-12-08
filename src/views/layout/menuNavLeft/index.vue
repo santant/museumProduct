@@ -8,7 +8,7 @@
           <span slot="title">{{item.meta.lable}}</span>
         </template>
         <template v-for="(item_2,index_2) in item.children">
-          <el-menu-item @click.native="checkPath(item.path+'/'+item_2.path)" :path="item.path+'/'+item_2.path" :index="indexs+'-'+index_2">{{item_2.meta.lable}}</el-menu-item>
+          <el-menu-item @click.native="checkPath(item.path+'/'+item_2.path,indexs+'-'+index_2)" :path="item.path+'/'+item_2.path" :index="indexs+'-'+index_2">{{item_2.meta.lable}}</el-menu-item>
         </template>
         <!--<el-menu-item index="1-2">选项2</el-menu-item>-->
         <!--<el-submenu index="1-3">-->
@@ -38,11 +38,13 @@
       handleClose(key, keyPath) {
         console.log(key, keyPath);
       },
-      checkPath(path){//切换链接
-        this.$router.push({
-          path: path,
-          query: {}
-        })
+      checkPath(path,oIndex){//切换链接
+        let dataRouter = {
+          path:path,
+          oIndex :oIndex,
+          $router : this.$router
+        }
+        this.$store.commit('checkPath',dataRouter)
       }
     },
     created() { //只执行一次

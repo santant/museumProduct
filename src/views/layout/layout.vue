@@ -21,8 +21,7 @@
   export default {
     data() {
       return {
-        isCollapse: false,
-        routerList:[]
+        isCollapse: false
       }
     },
     //		beforeRouteEnter(to,from,next){//路由钩子函数
@@ -40,7 +39,6 @@
 
     },
     mounted() { //全部渲染完毕
-      this.routerList = asycRouterMap.options.routes
       this.$store.commit('routerListDate',asycRouterMap.options.routes)
     },
     watch: { //数据改变执行异步函数
@@ -51,9 +49,7 @@
       'menuLeft':menuLeft
     },
     computed: { //数据改变computed
-      ...mapGetters({
-        filterRouterList:'routerListDate'//拿到状态的数据
-      })
+
     }
   }
 </script>

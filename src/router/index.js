@@ -5,10 +5,12 @@ import test from '@/components/test'
 import test2 from '@/components/test2'
 Vue.use(Router)
 
+
 export default new Router({
   routes: [
     {
         path: '/index',
+        alias: '/',
         name: '首页',
         component: index,
         meta:{
