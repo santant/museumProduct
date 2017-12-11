@@ -7,6 +7,7 @@ const app = {
       navOutline: '', //二级栏目
       threeLine: '',
       navTitle: '',
+      onRoutesIndex:'1-2', //默认选中的级别
       titleNavArr: [] //选中的导航栏有可能做多级选择，暂时定义为数组
     },
     isCollapse: false, //左侧导航栏展开收缩展示
@@ -23,7 +24,6 @@ const app = {
     },
     closeMenuWindow(state, windowData) { //点击上侧导航栏关闭当前窗口对应的路由
       if (!state.navTitle.titleNavArr[windowData.index].active) {
-        alert('没选中...')
         if (state.navTitle.titleNavArr.length > 1 || windowData.index > 0) {
           state.navTitle.titleNavArr.splice(windowData.index, 1)
           return
@@ -38,26 +38,29 @@ const app = {
           })
           state.navTitle.titleNavArr[windowData.index].active = true
         } else {
-          // if (windowData.index > 0){
-          //   var path = state.navTitle.titleNavArr[windowData.index - 1].path
-          //   state.navTitle.titleNavArr.splice(windowData.index, 1)
-          //   windowData.$router.push({  //刷新当前关闭按钮的后面的路由
-          //     path: path
-          //   })
-          //   state.navTitle.titleNavArr[windowData.index - 1].active = true
-          // }
-          alert('<')
+          if (windowData.index > 0){
+            var path = state.navTitle.titleNavArr[windowData.index - 1].path
+            state.navTitle.titleNavArr.splice(windowData.index, 1)
+            windowData.$router.push({  //刷新当前关闭按钮的后面的路由
+              path: path
+            })
+            state.navTitle.titleNavArr[windowData.index - 1].active = true
+          }else { //当前只有1个title页的时候返回首页
+            state.navTitle.titleNavArr = []
+            window.location='/'
+          }
         }
-
       }
-
-
     },
     checkMenuPathColor(state, colorIndex) { //根据索引修改选中的变量
       state.navTitle.titleNavArr.map((el, i) => {
         el.active = false
       })
-      state.navTitle.titleNavArr[colorIndex].active = true
+      state.navTitle.titleNavArr[colorIndex.Index].active = true
+      //修改左侧的对应关系
+      if (state.navTitle.onRoutesIndex!=colorIndex.pageIndex){
+        state.navTitle.onRoutesIndex = colorIndex.pageIndex
+      }
     },
     checkPath(state, dataRouter) {//切换链接
       var oIndexPage = dataRouter.oIndex.split('-')

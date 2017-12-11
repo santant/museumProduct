@@ -1,7 +1,7 @@
 <template>
   <!-- 跟节点 -->
   <div>
-    <el-menu text-color="#333" active-text-color="#fff" default-active="1-2" class="el-menu-vertical-demo" @open="handleOpen" @close="handleClose" :collapse="$store.state.app.isCollapse">
+    <el-menu ref="menu" text-color="#333" :default-active="title_active.onRoutesIndex"  active-text-color="#fff" router   class="el-menu-vertical-demo" @open="handleOpen" @close="handleClose" :collapse="$store.state.app.isCollapse">
       <el-submenu v-for="(item,indexs) in listNav" :index="(indexs+1)+''">
         <template slot="title">
           <i :class="item.meta.icon"></i>
@@ -28,7 +28,7 @@
     data() {
       return {
       	listNav:routerData,
-        isCollapse: false,
+        isCollapse: false
       }
     },
     components: { //引入组件
@@ -58,7 +58,7 @@
     },
     mounted() { //全部渲染完毕
 //     console.log(this.$refs.menu.open('0-0'))
-//      this.$refs.menu.open('1-0')
+
 
     },
     watch: { //数据改变执行异步函数
@@ -69,7 +69,8 @@
     },
     computed: { //数据改变computed
       ...mapGetters({
-        filterRouterList: 'routerListDate'//拿到状态的数据
+        filterRouterList: 'routerListDate',//拿到状态的数据
+        title_active: 'navTitle'
       })
     }
   }

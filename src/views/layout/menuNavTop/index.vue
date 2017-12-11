@@ -52,7 +52,11 @@
       },
       menuToHerf(ev, navItem, index) { //点击跳转链接
         ev.stopPropagation()
-        this.$store.commit('checkMenuPathColor', index)
+        var  dataIndex = { //菜单和导航的索引
+          pageIndex:navItem.pageIndex,
+          Index:index
+        }
+        this.$store.commit('checkMenuPathColor', dataIndex)
         this.$router.push({
           path: navItem.path
         })

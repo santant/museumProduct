@@ -36,9 +36,15 @@
     },
     mounted() { //全部渲染完毕
       this.$store.commit('routerListDate',routerData)
+      var dufIndex = ''
+      if(!sessionStorage.getItem('dataRouter')){
+          dufIndex = this.$store.state.app.navTitle.onRoutesIndex
+      }else{
+        dufIndex =  JSON.parse(sessionStorage.getItem('dataRouter')).oIndex
+      }
       let dataRouter = {
         path:this.$route.path,
-        oIndex :JSON.parse(sessionStorage.getItem('dataRouter')).oIndex,
+        oIndex :dufIndex,
         $router : this.$router,
         active:true
       }
@@ -51,7 +57,9 @@
       'menuLeft':menuLeft
     },
     computed: { //数据改变computed
-
+      ...mapGetters({
+        oTitle: 'navTitle'
+      })
     }
   }
 </script>
