@@ -23,11 +23,12 @@
     <!--导航栏-->
     <div class="scroll-container tags-view-container">
       <div class="scroll-wrapper">
-        <a href="" class="tags-view-item tags-view-item-active">
-          <i class="yuandian"></i>
-          {{navTitle.titleNav}}
-          <span class="el-icon-close icon_hover"></span>
-        </a>
+        <div @click="menuToHerf($event,navItem,index)"
+             v-for="(navItem,index) in  navTitle.titleNavArr" :class="{'tags-view-item-active':navItem.active}"
+             class="tags-view-item">
+          <span @click.prevent="closeWindow($event,index)" class="el-icon-close icon_hover"></span>
+          {{navItem.titleName}}
+        </div>
       </div>
     </div>
   </div>
@@ -48,13 +49,26 @@
     methods: { //执行的方法函数
       checkMenu() {
         this.$store.commit('setCollapse')
+      },
+      menuToHerf(ev, navItem, index) { //点击跳转链接
+        ev.stopPropagation()
+        this.$store.commit('checkMenuPathColor', index)
+        this.$router.push({
+          path: navItem.path
+        })
+      },
+      closeWindow(ev, index) {
+        ev.stopPropagation()
+        this.$store.commit('closeMenuWindow', {
+          $router: this.$router,
+          index: index
+        })
       }
     },
     created() { //只执行一次
 
     },
     mounted() { //全部渲染完毕
-      console.log('路由', this.filterRouterL)
     },
     watch: { //数据改变执行异步函数
       //	       bbsTemplate_data: 'dataPull'

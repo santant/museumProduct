@@ -4,6 +4,22 @@
     background: #495060;
     border: none;
   }
+  .el-submenu__title *{
+    color: #fff;
+  }
+  .el-menu-item-group__title{
+    color: #fff;
+  }
+  .el-submenu .el-menu-item{
+    color: #fff;
+  }
+
+  .el-menu-item{
+    color: #fff;
+  }
+  .is-active{
+    color: #409EFF;
+  }
   .el-submenu__title:hover {
     background-color: rgb(48, 65, 86);
   }
@@ -11,6 +27,7 @@
     outline: 0;
     background-color: rgb(48, 65, 86);
   }
+
   .chenkMenu_marginLeft{
     margin-left: 64px !important;
   }

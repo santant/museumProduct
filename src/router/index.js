@@ -20,6 +20,7 @@ const ROUTER = new Router({
         {
         	 'name':'test',
         	  path: 'test',
+            alias: '/',
             component: test,
             meta:{
               'lable':'test',
@@ -50,7 +51,26 @@ const ROUTER = new Router({
           component: test2,
           meta:{
             'lable':'权限管理2'
-          }
+          },
+          children: [
+            {
+              'name':'admin3',
+              path: 'test',
+              meta:{
+                'lable':'第三层目录1',
+                'icon':'图标地址',
+                'isMenu':false
+              }
+            },
+            {
+              path: 'test2',
+              meta:{
+                'lable':'第三层目录2',
+                'icon':'图标地址',
+                'isMenu':false
+              }
+            }
+          ]
         }
       ]
     }

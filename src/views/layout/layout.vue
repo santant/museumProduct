@@ -18,16 +18,12 @@
   import {mapGetters} from  'vuex'
   import menuTop from './menuNavTop/index.vue' //导航栏上面部分
   import menuLeft from './menuNavLeft/index.vue' //导航栏左侧部分
+  import routerData from '@/router/routerData'
   export default {
     data() {
       return {
         isCollapse: false
       }
-    },
-    beforeRouteEnter(to,from,next){//路由钩子函数
-      console.log(to)
-      console.log(from)
-      next()
     },
     components: { //引入组件
 
@@ -39,18 +35,16 @@
 
     },
     mounted() { //全部渲染完毕
-      this.$store.commit('routerListDate',asycRouterMap.options.routes)
-
+      this.$store.commit('routerListDate',routerData)
       let dataRouter = {
-        path:'',
+        path:this.$route.path,
         oIndex :JSON.parse(sessionStorage.getItem('dataRouter')).oIndex,
-        $router : this.$router
+        $router : this.$router,
+        active:true
       }
-//      sessionStorage.setItem('dataRouter',JSON.stringify({ path:path, oIndex :oIndex}))
-      this.$store.commit('checkPath',dataRouter)
+      this.$store.commit('checkPath',dataRouter) //防止浏览器刷新bug
     },
     watch: { //数据改变执行异步函数
-      //	       bbsTemplate_data: 'dataPull'
     },
     components: { //引入组件
       'menuTop':menuTop,
