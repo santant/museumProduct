@@ -2,7 +2,7 @@
   <!-- 跟节点 -->
   <div id="artup">
     <div class="app-wrapper">
-      <div  :class="{'chenkMenu_width':$store.state.app.isCollapse}"  class="container sidebar-container theme1">
+      <div  :class="{'chenkMenu_width':$store.state.app.isCollapse,'ov_h':!$store.state.app.isCollapse}"  class="container sidebar-container theme1">
         <menuLeft></menuLeft>
       </div>
       <div :class="{'chenkMenu_marginLeft':$store.state.app.isCollapse}" class="container main-container">
