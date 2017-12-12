@@ -3,6 +3,7 @@ import Router from 'vue-router'
 import index from '@/views/layout/layout'
 import test from '@/components/test'
 import test2 from '@/components/test2'
+import table from '@/components/table'
 Vue.use(Router)
 
 const ROUTER = new Router({
@@ -26,6 +27,14 @@ const ROUTER = new Router({
               'lable':'test',
               'icon':'图标地址'
             }
+        },
+        {
+          path: 'table',
+          component: table,
+          meta:{
+            'lable':'表格',
+            'icon':'图标地址'
+          }
         },
         {
           path: 'test2',

@@ -1,7 +1,36 @@
 #artup {
+  /*和用户相关的*/
+  .artup_user_msg{
+    width: 100%;
+    .logo{
+      height: 50px;
+      width: 100%;
+      display: block;
+      border-bottom: 1px solid #171d24;
+    }
+    .user_box{
+      transition: all 0.5s;
+      width: 100%;
+      height: 160px;
+      position: relative;
+      border-bottom: 1px solid #171d24;
+      >img{
+        display: block;
+        margin: 34px auto 0;
+      }
+      .user{
+        color: #c3cfe0;
+        font-size: 16px;
+        text-align: center;
+        display: block;
+        line-height: 50px;
+        cursor: pointer;
+      }
+    }
+  }
   /*冲突左侧导航栏的样式*/
   .el-menu{
-    background: #495060;
+    background: #1c2b36;
     border: none;
   }
   .el-submenu__title:hover {
@@ -28,6 +57,22 @@
   .user_msg{
     float: right;
     padding-right: 20px;
+    >i{
+      cursor: pointer;
+      &:hover{
+        opacity: 0.8;
+      }
+      &:active{
+        position: relative;
+        top:1px;
+      }
+    }
+    >span{
+      cursor: pointer;
+      font-size: 14px;
+      padding: 0 10px;
+
+    }
   }
   height: 100%;
   width: 100%;
@@ -36,6 +81,7 @@
     height: 100%;
     width: 100%;
     overflow: hidden;
+    font-family: "微软雅黑 'Avenir', Helvetica, Arial, sans-serif";
   }
   .container {
 
@@ -49,6 +95,8 @@
     bottom: 0;
     left: 0;
     z-index: 1001;
+    overflow: hidden;
+    overflow-y: auto;
   }
   .main-container {
     min-height: 100%;
@@ -65,12 +113,19 @@
         padding: 0 10px;
         font-size: 20px;
         transition: 0.28s;
+        position: relative;
+        cursor: pointer;
+        color: #57626a;
+      }
+      .posTop{
+        top:-4px;
       }
     }
   }
   .el-menu-vertical-demo:not(.el-menu--collapse) {
     width: 200px;
     min-height: 400px;
+    overflow-y: auto;
   }
   /*路由导航*/
   .croll-container{
@@ -80,7 +135,7 @@
   }
   .tags-view-container {
     background: #fff;
-    height: 34px;
+    height: 40px;
     border-bottom: 1px solid #d8dce5;
     box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.12), 0 0 3px 0 rgba(0, 0, 0, 0.04);
     .tags-view-item{
@@ -91,10 +146,11 @@
       border: 1px solid #d8dce5;
       color: #495060;
       background: #fff;
-      padding: 0 8px;
+      padding: 0 12px;
       font-size: 12px;
       margin-left: 5px;
-      margin-top: 4px;
+      margin-top: 6px;
+      cursor: pointer;
       span{
         width: 14px;
         transform: all 0.3s;
@@ -123,6 +179,7 @@
       background-color: #42b983 !important;
       color: #fff !important;
       border-color: #42b983 !important;
+      border: 1px solid #42b983;
     }
   }
 }

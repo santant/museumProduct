@@ -8,7 +8,9 @@
       <div :class="{'chenkMenu_marginLeft':$store.state.app.isCollapse}" class="container main-container">
         <menu-top></menu-top>
         <!--路由-->
-        <router-view/>
+        <div class="main-router">
+          <router-view/>
+        </div>
       </div>
     </div>
   </div>

@@ -13,9 +13,8 @@ export default {
 <style>
 @import './assets/public.css';
 #app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;	
+  -moz-osx-font-smoothing: grayscale;
   width: 100%;
   height: 100%;
 }

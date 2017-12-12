@@ -37,9 +37,9 @@ let routerData = [
         ]
       },
       {
-        path: '/index/test2',
+        path: '/index/table',
         meta: {
-          'lable': '测试地址2',
+          'lable': '表格',
           'icon': '',
           'isMenu': false
         }
