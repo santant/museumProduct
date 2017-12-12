@@ -1,11 +1,11 @@
 <template>
-  <span>testss{{bb |test}}</span>
+  <span v-DomHeight="2" >testss{{bb |test}}</span>
 </template>
 
 <script>
   export default {
     methods: {
-     
+
     },
     data() {
       return {
