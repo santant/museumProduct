@@ -21,7 +21,6 @@ const ROUTER = new Router({
         {
         	 'name':'test',
         	  path: 'test',
-            alias: '/',
             component: test,
             meta:{
               'lable':'test',
