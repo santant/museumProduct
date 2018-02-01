@@ -4,7 +4,11 @@ import Vue from 'vue'
 let DomHeight = Vue.directive('DomHeight', {
   // 当绑定元素插入到 DOM 中。
   inserted: function (el,data) { // 拿到dom动态算出高度
-    console.log(el)
-    console.log(data.expression) //传递的数据
+    console.log('拿到的指令dom',el)
+    console.log('传递过来的指令数据',data.expression) //传递的数据
   }
 })
+
+export default {
+  DomHeight
+}

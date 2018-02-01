@@ -12,8 +12,7 @@ let routerData = [
         'name': 'test',
         path: '/index/test',
         meta: {
-          'lable': '测试地址1',
-          'icon': '',
+          'lable': '测试',
           'isMenu': true
         },
         children: [
@@ -21,16 +20,7 @@ let routerData = [
             'name': 'test',
             path: '/index/test',
             meta: {
-              'lable': '第三层目录1',
-              'icon': '',
-              'isMenu': false
-            }
-          },
-          {
-            path: '/index/test2',
-            meta: {
-              'lable': '第三层目录2',
-              'icon': '',
+              'lable': '过滤器和ajax',
               'isMenu': false
             }
           }
@@ -40,7 +30,6 @@ let routerData = [
         path: '/index/table',
         meta: {
           'lable': '表格',
-          'icon': '',
           'isMenu': false
         }
       }

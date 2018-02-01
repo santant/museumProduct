@@ -73,10 +73,9 @@ const ROUTER = new Router({
     }
   ]
 })
-
-// router.afterEach((to, from, next) => {
+// ROUTER.afterEach((to, from, next) => {
 //   if(to.meta.title) {
-//     window.document.title = to.meta.title
+//     window.document.title = to.meta.lable
 //   }
 // })
 export default ROUTER

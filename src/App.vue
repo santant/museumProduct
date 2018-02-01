@@ -10,8 +10,9 @@ export default {
 }
 </script>
 
-<style>
+<style lang="scss">
 @import './assets/public.css';
+@import './assets/scss/mian.scss';
 #app {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;

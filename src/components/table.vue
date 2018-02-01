@@ -65,12 +65,6 @@
         label="操作"
         width="220">
         <template slot-scope="scope">
-          <!--<el-button-->
-            <!--@click.native.prevent="deleteRow(scope.$index, tableData4)"-->
-            <!--type="text"-->
-            <!--size="small">-->
-            <!--移除-->
-          <!--</el-button>-->
           <el-button type="primary" size="mini">编辑</el-button>
           <el-button  size="mini">草稿</el-button>
           <el-button type="danger" size="mini">删除</el-button>

@@ -61,6 +61,10 @@ const app = {
       if (state.navTitle.onRoutesIndex!=colorIndex.pageIndex){
         state.navTitle.onRoutesIndex = colorIndex.pageIndex
       }
+      var oIndexPage =  colorIndex.pageIndex.split('-')
+      state.navTitle.navTitle = state.routerListDate[(oIndexPage[0] - 1)].meta.lable
+      state.navTitle.navOutline = state.routerListDate[(oIndexPage[0] - 1)].children[(oIndexPage[1] - 1)].meta.lable
+      oIndexPage.length > 2 ? state.navTitle.threeLine = state.routerListDate[(oIndexPage[0] - 1)].children[(oIndexPage[1] - 1)].children[(oIndexPage[2] - 1)].meta.lable : state.navTitle.threeLine = ''
     },
     checkPath(state, dataRouter) {//切换链接
       var oIndexPage = dataRouter.oIndex.split('-')
