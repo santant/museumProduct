@@ -5,7 +5,7 @@
       <img class="logo" src="../../../../static/image/layout/logo_layout.png" alt="">
       <div v-if="!$store.state.app.isCollapse" class="user_box">
         <img src="../../../../static/image/layout/user_img.png" alt="">
-        <el-dropdown  placement="bottom" class="user">
+        <el-dropdown placement="bottom" class="user">
 				      <span class="el-dropdown-link">
 				        超级管理员<i class="el-icon-arrow-down el-icon--right"></i>
 				      </span>
@@ -17,19 +17,26 @@
         </el-dropdown>
       </div>
     </div>
-    <el-menu ref="menu" text-color="#7ca1bc" :default-active="title_active.onRoutesIndex"  active-text-color="#fff" router   class="el-menu-vertical-demo" @open="handleOpen" @close="handleClose" :collapse="$store.state.app.isCollapse">
-      <el-submenu v-for="(item,indexs) in listNav" :index="(indexs+1)+''">
+    <el-menu ref="menu" text-color="#7ca1bc" :default-active="title_active.onRoutesIndex" active-text-color="#fff"
+             router class="el-menu-vertical-demo" @open="handleOpen" @close="handleClose"
+             :collapse="$store.state.app.isCollapse">
+      <el-submenu :key="indexs" v-for="(item,indexs) in listNav" :index="(indexs+1)+''">
         <template slot="title">
           <i style="color: #7ca1bc" :class="item.meta.icon"></i>
           <span slot="title">{{item.meta.lable}}</span>
         </template>
-        <template  v-for="(item_2,index_2) in item.children">
+        <template v-for="(item_2,index_2) in item.children">
           <div v-show="!item_2.meta.isMenu">
-            <el-menu-item  @click.native="checkPath(item_2.path,(indexs+1)+'-'+(index_2+1)+'')"  :index="(indexs+1)+'-'+(index_2+1)+''">{{item_2.meta.lable}}</el-menu-item>
+            <el-menu-item @click.native="checkPath(item_2.path,(indexs+1)+'-'+(index_2+1)+'')"
+                          :index="(indexs+1)+'-'+(index_2+1)+''">{{item_2.meta.lable}}
+            </el-menu-item>
           </div>
           <el-submenu :index="(indexs+1)+'-'+(index_2+1)+''" v-show="item_2.meta.isMenu">
             <span slot="title">{{item_2.meta.lable}}</span>
-            <el-menu-item @click.native="checkPath(item_3.path,(indexs+1)+'-'+(index_2+1)+'-'+(index_3+1))" :index="(indexs+1)+'-'+(index_2+1)+'-'+(index_3+1)+''" v-for="(item_3,index_3) in item_2.children">{{item_3.meta.lable}}</el-menu-item>
+            <el-menu-item :key="index_3" @click.native="checkPath(item_3.path,(indexs+1)+'-'+(index_2+1)+'-'+(index_3+1))"
+                          :index="(indexs+1)+'-'+(index_2+1)+'-'+(index_3+1)+''"
+                          v-for="(item_3,index_3) in item_2.children">{{item_3.meta.lable}}
+            </el-menu-item>
           </el-submenu>
         </template>
       </el-submenu>
@@ -39,11 +46,12 @@
 <script>
   import {mapGetters} from 'vuex'
   import routerData from '@/router/routerData'
+
   export default {
     name: 'menuTop',
     data() {
       return {
-      	listNav:routerData,
+        listNav: routerData,
         isCollapse: false
       }
     },
@@ -63,7 +71,7 @@
           path: path,
           oIndex: oIndex,
           $router: this.$router,
-          active:true
+          active: true
         }
         sessionStorage.setItem('dataRouter', JSON.stringify({path: path, oIndex: oIndex}))
         this.$store.commit('checkPath', dataRouter)

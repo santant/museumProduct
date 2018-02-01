@@ -4,6 +4,7 @@ import index from '@/views/layout/layout'
 import test from '@/components/test'
 import test2 from '@/components/test2'
 import table from '@/components/table'
+import user from '@/components/user/user.vue'
 Vue.use(Router)
 
 const ROUTER = new Router({
@@ -59,26 +60,14 @@ const ROUTER = new Router({
           component: test2,
           meta:{
             'lable':'权限管理2'
-          },
-          children: [
-            {
-              'name':'admin3',
-              path: 'test',
-              meta:{
-                'lable':'第三层目录1',
-                'icon':'图标地址',
-                'isMenu':false
-              }
-            },
-            {
-              path: 'test2',
-              meta:{
-                'lable':'第三层目录2',
-                'icon':'图标地址',
-                'isMenu':false
-              }
-            }
-          ]
+          }
+        },
+        {
+          path: 'user',
+          component: user,
+          meta:{
+            'lable':'用户管理'
+          }
         }
       ]
     }

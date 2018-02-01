@@ -57,7 +57,14 @@ let routerData = [
       {
         path: '/admin/admin2',
         meta: {
-          'lable': '权限管理2',
+          'lable': '权限管理',
+          'isMenu': false
+        }
+      },
+      {
+        path: '/admin/user',
+        meta: {
+          'lable': '用户管理',
           'isMenu': false
         }
       }
