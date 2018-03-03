@@ -3,7 +3,6 @@ import axios from 'axios'
 import qs from 'qs'
 
 Vue.prototype.$http = axios
-
 const VueHttp = new Vue()
 var HTTP = VueHttp.$http.create({
 // baseUrl:'http:www.baidu.com',
@@ -17,4 +16,3 @@ var HTTP = VueHttp.$http.create({
 
 
 export default {}
-

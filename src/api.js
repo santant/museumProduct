@@ -2,7 +2,6 @@ import axios from 'axios'
 import qs from 'qs'
 
 const HOST = 'http://image2.artup.com/'
-
 // axios.defaults.baseURL = 'https://api.example.com';
 // axios.defaults.headers.common['Authorization'] = "1232332232112";
 // axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded';
